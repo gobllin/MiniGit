@@ -5,7 +5,17 @@
 
 int main(int argc, char *argv[])
 {
- // Checking if the user input less than 2 arguments in CLI
+ /*
+  * argc = number of command line arguments
+  * argv = array storing all command line arguments
+  *
+  * Example:
+  * ./minigit init
+  *
+  * argv[0] = ./minigit
+  * argv[1] = init
+  */
+
  if(argc < 2)
  {
   printf("Usage: minigit <command>\n");
