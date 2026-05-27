@@ -24,7 +24,7 @@ if (strcmp(argv[1], "init") == 0)
   printf("Failed to initialize repository.\n");
  }
 }
-//Checking if the command is "hash-object"
+//Checking if the command is "hash-object."
 else if (strcmp(argv[1], "hashing-object") == 0)
 {
  // Safety check: Did they provide a file?
@@ -36,12 +36,13 @@ else if (strcmp(argv[1], "hashing-object") == 0)
  }
  char bucket[41];// the empty bucket
 
- // Pass the file they typed (argv[2]) to the scanner
+ // Pass the file they typed (argv[2]) to the scanner and Generate hash for the given file
  if(hash_file(argv[2], bucket) == 0)
  {
   printf("%s\n", bucket); //Print the HashID
  }
 }
+// Handle invalid commands
 else
 {
  printf("Unknown command: %s\n", argv[1]);
