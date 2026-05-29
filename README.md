@@ -14,6 +14,10 @@ MiniGit is a simplified Git-like version control system implemented in C to expl
 - Object identification mechanisms
 - Hash generation for file tracking
 
+### Blob Creation
+- Creation of blob storage
+- Storage of files using hashIDs
+  
 ## Tech Stack
 - C Programming Language
 - File Handling
@@ -30,7 +34,6 @@ This project was built to understand:
 - Filesystem-based object management
 
 ## Planned Features
-- Blob objects
 - Staging area/index management
 - Tree objects
 - Commit objects
