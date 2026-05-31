@@ -22,7 +22,9 @@ int main(int argc, char *argv[])
   return 1;
  }
 
- //Checking if the second argument is "init" or not
+ /* 
+ Checking if the second argument is "init" or not
+ */
 if (strcmp(argv[1], "init") == 0)
 {
  if(init_repo(".") == 0)
@@ -34,25 +36,52 @@ if (strcmp(argv[1], "init") == 0)
   printf("Failed to initialize repository.\n");
  }
 }
-//Checking if the command is "hash-object."
+/*
+ * Compare the user command with "hash-object"
+ *
+ * Example:
+ * ./minigit hash-object file.txt
+ *
+ * If argv[1] matches "hash-object",
+ * generate a hash ID for the specified file.
+ */
 else if (strcmp(argv[1], "hashing-object") == 0)
 {
- // Safety check: Did they provide a file?
+ /*
+  * Ensure the user provided a filename.
+  *
+  * argv[2] should contain the file path.
+  */
  if( argc < 3)
  {
   printf("Error please provide a file to hash. \n");
   printf("Usage: minigit hash-object <filename>\n");
   return 1;
  }
- char bucket[41];// the empty bucket
 
- // Pass the file they typed (argv[2]) to the scanner and Generate hash for the given file
+ /*
+ * Store the generated hash string.
+ *
+ * SHA-1 hashes are 40 characters long,
+ * plus 1 character for the null terminator.
+ */
+ char bucket[41];// the empty bucket
+ /*
+  * Read the file specified by argv[2],
+  * compute its hash, and store the result
+  * inside the bucket array.
+  */
  if(hash_file(argv[2], bucket) == 0)
  {
+  /*
+   * Print the generated hash ID.
+   */
   printf("%s\n", bucket); //Print the HashID
  }
 }
-// Handle invalid commands
+ /*
+  * Handle commands that Mini-Git does not recognize.
+  */
 else
 {
  printf("Unknown command: %s\n", argv[1]);
