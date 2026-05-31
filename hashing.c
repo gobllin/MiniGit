@@ -3,19 +3,27 @@
 
 int hash_file(const char *filename, char *output_hash)
 {
- // Open the file in read mode
+ /* 
+ Open the file in read mode
+ */
  FILE *file = fopen(filename, "r");
  
- // Check if file opening failed
+ /*
+ Check if file opening failed
+ */
  if ( file == NULL)
  {
   perror("minigit: failed to open file");
   return -1;
  }
- // Variable to store final hash value
+ /* 
+ Variable to store final hash value
+ */
  unsigned long long hash_value = 0;
 
- // Variable to store each character read from file
+ /*
+ Variable to store each character read from file
+ */
  int ch;
  
  /*
