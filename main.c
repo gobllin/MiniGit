@@ -3,7 +3,7 @@
 #include "repository.h"
 #include "hashing.h"
 #include "blob.h"
-#include  "index.h"
+#include "index.h"
 
 int main(int argc, char *argv[])
 {
