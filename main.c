@@ -77,6 +77,37 @@ else if (strcmp(argv[1], "hashing-object") == 0)
    * Print the generated hash ID.
    */
   printf("%s\n", bucket); //Print the HashID
+  // 2. NEW: The Scanner finished, now call the Stockboy!
+  // We pass the original file (argv[2]) and the new ID (bucket)
+  if(create_blob(argv[2], bucket) == 0)
+  {
+   // We don't need to print anything here, reaching this point means backup is safe
+  }
+ }
+ else if (strcmp(argv[1], "add") == 0)
+ {
+  if ( argc < 3)
+  {
+   printf("Error: please provide a file to add. \n");
+   printf("Usage: minigit add <filename>. \n");
+   return 1;
+  }
+  char bucket[41];
+
+  //step A: Send the Scanner to get the DNA ID
+  if (hash_file(argv[2], bucket) == 0) 
+   {
+     // Step B: Send the Stockboy to save the backup
+     if (create_blob(argv[2], bucket) == 0) 
+      {
+       // Step C: Send the Receptionist to write it on her clipboard!
+       // Notice we pass the bucket (Hash) first, then argv[2] (Filename)
+       if (add_to_index(bucket, argv[2]) == 0) 
+        {
+          printf("Success: Added '%s' to the staging area.\n", argv[2]);
+        }
+       }
+    }
  }
 }
  /*
