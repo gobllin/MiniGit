@@ -39,3 +39,5 @@ This project was built to understand:
 - Commit objects
 - Repository history tracking
 - Branching support
+- Git status
+- Git Clone
